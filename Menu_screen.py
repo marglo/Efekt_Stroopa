@@ -22,6 +22,7 @@ blue = (0, 0, 255)
 dark_blue = (0, 0, 153)
 green = (0, 255, 0)
 dark_green = (0, 153, 0)
+yellow = (255, 255, 0)
 
 # Load and display images
 main_screen_logo = pygame.image.load('mainscreenlogo.png')
