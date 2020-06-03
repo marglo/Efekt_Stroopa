@@ -40,7 +40,6 @@ def text_objects(text, font):
 # Game intro
 def intro_screen():
     intro = True
-
     while intro:
         for event in pygame.event.get():
             print(event)
@@ -66,12 +65,8 @@ def intro_screen():
 
 
         #Interakcja przycisku 1
-
         if 190 + 800 > mouse[0] > 190 and 220 + 60 > mouse[1] > 220:
             pygame.draw.rect(main_screen, green, (190, 220, 800, 60))
-            if click[0] == 1:
-                game_screen()
-
         else:
             pygame.draw.rect(main_screen, dark_green, (190, 220, 800, 60))
 
@@ -85,6 +80,8 @@ def intro_screen():
         #Interakcja przycisku 2
         if 190 + 800 > mouse[0] > 190 and 300 + 60 > mouse[1] > 300:
             pygame.draw.rect(main_screen, green, (190, 300, 800, 60))
+            if click[0] == 1:
+                game_screen()
         else:
             pygame.draw.rect(main_screen, dark_green, (190, 300, 800, 60))
 
@@ -122,6 +119,9 @@ def intro_screen():
 
         pygame.display.update()
 
+
+
+
 #okno gry
 def game_screen():
     run = True
@@ -142,24 +142,62 @@ def game_screen():
         TextRect.center = ((display_width / 2), (display_height / 5))
         main_screen.blit(TextSurf, TextRect)
 
-        zielony = pygame.draw.rect(main_screen, dark_grey, (190, 350, 300, 60))
-        żółty = pygame.draw.rect(main_screen, dark_grey, (190, 500, 300, 60))
-        czerwony = pygame.draw.rect(main_screen, dark_grey, (690, 350, 300, 60))
-        niebieski = pygame.draw.rect(main_screen, dark_grey, (690, 500, 300, 60))
+        zielony = pygame.draw.rect(main_screen, dark_grey, (250, 350, 300, 80))
+        żółty = pygame.draw.rect(main_screen, dark_grey, (250, 500, 300, 80))
+        czerwony = pygame.draw.rect(main_screen, dark_grey, (630, 350, 300, 80))
+        niebieski = pygame.draw.rect(main_screen, dark_grey, (630, 500, 300, 80))
 
         mouse = pygame.mouse.get_pos()
 
 
-        # pierwszy przycisk
-        if 190 + 300 > mouse[0] > 190 and 350 + 60 > mouse[1] > 350:
-            pygame.draw.rect(main_screen, light_grey, (190, 350, 300, 60))
+        # pierwszy przycisk o nazwie zielony
+        if 250 + 300 > mouse[0] > 250 and 350 + 80 > mouse[1] > 350:
+            pygame.draw.rect(main_screen, light_grey, (250, 350, 300, 80))
         else:
-            pygame.draw.rect(main_screen, dark_grey, (190, 350, 300, 60))
+            pygame.draw.rect(main_screen, dark_grey, (250, 350, 300, 80))
+
+        button_description = pygame.font.Font("C:\Windows\Fonts\Arial.ttf", 20)
+        textSurf, textRect = text_objects(("zielony"), button_description)
+        textRect.center = ((250 + (300 / 2)), (350 + (80 / 2)))
+        main_screen.blit(textSurf, textRect)
+
+
+        # drugi przycisk o nazwie żółty
+        if 250 + 300 > mouse[0] > 190 and 500 + 80 > mouse[1] > 500:
+            pygame.draw.rect(main_screen, light_grey, (250, 500, 300, 80))
+        else:
+            pygame.draw.rect(main_screen, dark_grey, (250, 500, 300, 80))
+
+        button_description = pygame.font.Font("C:\Windows\Fonts\Arial.ttf", 20)
+        textSurf, textRect = text_objects(("żółty"), button_description)
+        textRect.center = ((250 + (300 / 2)), (500 + (80 / 2)))
+        main_screen.blit(textSurf, textRect)
+
+
+        # trzeci przycisk o nazwie czerwony
+        if 630 + 300 > mouse[0] > 630 and 350 + 80 > mouse[1] > 350:
+            pygame.draw.rect(main_screen, light_grey, (630, 350, 300, 80))
+        else:
+            pygame.draw.rect(main_screen, dark_grey, (630, 350, 300, 80))
+
+        button_description = pygame.font.Font("C:\Windows\Fonts\Arial.ttf", 20)
+        textSurf, textRect = text_objects(("czerwony"), button_description)
+        textRect.center = ((630 + (300 / 2)), (350 + (80 / 2)))
+        main_screen.blit(textSurf, textRect)
+
+
+        # czwarty przycisk o nazwie niebieski
+        if 630 + 300 > mouse[0] > 630 and 500 + 80 > mouse[1] > 500:
+            pygame.draw.rect(main_screen, light_grey, (630, 500, 300, 80))
+        else:
+            pygame.draw.rect(main_screen, dark_grey, (630, 500, 300, 80))
 
         button_description = pygame.font.Font("C:\Windows\Fonts\Arial.ttf", 20)
         textSurf, textRect = text_objects(("niebieski"), button_description)
-        textRect.center = ((190 + (300 / 2)), (350 + (60 / 2)))
+        textRect.center = ((630 + (300 / 2)), (500 + (80 / 2)))
         main_screen.blit(textSurf, textRect)
+
+
 
         pygame.display.update()
 
