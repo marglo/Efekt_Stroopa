@@ -81,7 +81,7 @@ def intro_screen():
         if 190 + 800 > mouse[0] > 190 and 300 + 60 > mouse[1] > 300:
             pygame.draw.rect(main_screen, green, (190, 300, 800, 60))
             if click[0] == 1:
-                game_screen()
+                pregame_screen()
         else:
             pygame.draw.rect(main_screen, dark_green, (190, 300, 800, 60))
 
@@ -125,6 +125,54 @@ def intro_screen():
 
 
 #okno gry
+def pregame_screen():
+    run = True
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            else:
+                main_screen.fill(white)
+                title_text = pygame.font.Font('C:\Windows\Fonts\COOPBL.ttf', 50)
+                TextSurf, TextRect = text_objects('Instrukcje', title_text)
+                TextRect.center = ((display_width / 2), (display_height / 5))
+                main_screen.blit(TextSurf, TextRect)
+
+                instructions_text = pygame.font.Font("C:\Windows\Fonts\Arial.ttf", 20)
+                TextSurf, TextRect = text_objects('Zobaczysz na ekranie wyraz i cztery przyciski,', instructions_text)
+                TextRect.center = ((display_width / 2), 200)
+                main_screen.blit(TextSurf, TextRect)
+
+                instructions_text = pygame.font.Font("C:\Windows\Fonts\Arial.ttf", 20)
+                TextSurf, TextRect = text_objects("Twoim zadaniem jest nacisnąć przycisk odpowiadający kolorowi czcionki widocznego wyrazu.", instructions_text)
+                TextRect.center = ((display_width / 2), 230)
+                main_screen.blit(TextSurf, TextRect)
+
+                instructions_text = pygame.font.Font("C:\Windows\Fonts\Arial.ttf", 20)
+                TextSurf, TextRect = text_objects('Pamiętaj, liczy się NIE znaczenie wyrazu, a TYLKO kolor czcionki. Powodzenia!', instructions_text)
+                TextRect.center = ((display_width / 2), 260)
+                main_screen.blit(TextSurf, TextRect)
+
+                graj = pygame.draw.rect(main_screen, dark_green, (540, 380, 100, 60))
+                mouse = pygame.mouse.get_pos()
+                click = pygame.mouse.get_pressed()
+
+                if 540 + 100 > mouse[0] > 540 and 380 + 60 > mouse[1] > 380:
+                    pygame.draw.rect(main_screen, green, (540, 380, 100, 60))
+                    if click[0] == 1:
+                        game_screen()
+                else:
+                    pygame.draw.rect(main_screen, dark_green, (540, 380, 100, 60))
+
+                button_description = pygame.font.Font("C:\Windows\Fonts\COOPBL.ttf", 20)
+                textSurf, textRect = text_objects(("Graj"), button_description)
+                textRect.center = ((540 + (100 / 2)), (380 + (60 / 2)))
+                main_screen.blit(textSurf, textRect)
+                
+        pygame.display.update()
+
+
 def game_screen():
     run = True
     slowo = random.choice(lista_słów)
@@ -229,6 +277,7 @@ def informacje_screen():
 
 
 intro_screen()
+pregame_scren()
 game_screen()
 informacje_screen()
 pygame.quit()
