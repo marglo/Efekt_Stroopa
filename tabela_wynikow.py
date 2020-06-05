@@ -13,7 +13,7 @@ X = 350
 Y = 265
 Z = 600
 czcionka = "AutourOne-Regular.otf"
-display_surface = pygame.display.set_mode((1180, 620))
+# display_surface = pygame.display.set_mode((1180, 620))
 
 class Wynik:
     def __init__(self, nazwa_uzytkownika, czas):
@@ -48,11 +48,12 @@ class Tabela:
             i = i.split()
             Wynik(i[0], int(i[1]))
         self.tabela_wynikow = sorted(self.tabela_wynikow, key=lambda i: i.czas)
-
 moja_tabela = Tabela()
-moja_tabela.wczytaj_wyniki()
 
 def wyswietlanie_tabeli():
+
+    moja_tabela.wczytaj_wyniki()
+    display_surface = pygame.display.set_mode((1180, 620))
     while True:
         display_surface.fill(white)
         odstep = 0
@@ -104,4 +105,4 @@ def wyswietlanie_tabeli():
                 quit()
             pygame.display.update()
 
-wyswietlanie_tabeli()
+# wyswietlanie_tabeli()

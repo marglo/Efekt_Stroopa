@@ -1,4 +1,8 @@
-import pygame
+import pygame,sys
+from tabela_wynikow import Wynik
+from tabela_wynikow import wyswietlanie_tabeli
+clock = pygame.time.Clock()
+
 
 pygame.init()
 white = (255, 255, 255)
@@ -36,8 +40,15 @@ while True:
     pygame.draw.rect(display_surface, white, (400, 270, 330, 50))
     naglowek = my_big_font.render("Podaj nazwę użytkownika", True, dark_green)
     display_surface.blit(naglowek, (285, 170))
+    click = pygame.mouse.get_pressed()
     if 490 + 150 > myszka[0] > 150 and 350 + 40 > myszka[1] > 350:
         pygame.draw.rect(display_surface, green, (490, 350, 150, 40))
+
+        if click[0] == 1 and Wynik.zapisz_wynik != None:
+            czas = "3"
+            Wynik.zapisz_wynik(nazwa_input, czas)
+            wyswietlanie_tabeli()
+
     else:
         pygame.draw.rect(display_surface, dark_green, (490, 350, 150, 40))
 
@@ -46,6 +57,6 @@ while True:
     text_surface = my_small_font.render(nazwa_input, True, black)
     display_surface.blit(text_surface, (405, 280))
 
-
+    clock.tick(15)
     pygame.display.flip()
 
