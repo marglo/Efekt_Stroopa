@@ -423,7 +423,52 @@ def informacje_screen():
         pygame.display.update()
 
 
-
+# paulina okno
+# okno, które by działalo gdyby walidacja dzialala i by sie wszystko polaczylo
+# czcionka = "AutourOne-Regular.otf"
+# my_small_font = pygame.font.Font(czcionka, 32)
+# my_big_font = pygame.font.Font(czcionka, 37)
+# smallest_font = pygame.font.Font(czcionka, 26)
+# nazwa_input = ""
+#
+# while True:
+#
+#     for event in pygame.event.get():
+#         if event.type == pygame.QUIT:
+#             sys.exit(0)
+#         if event.type == pygame.KEYDOWN:
+#             if len(nazwa_input) > 13:
+#                 nazwa_input = nazwa_input[:-1]
+#             if event.key == pygame.K_BACKSPACE:
+#                 nazwa_input = nazwa_input[:-1]
+#             else:
+#                 nazwa_input += event.unicode
+#     myszka = pygame.mouse.get_pos()
+#
+#     main_screen.fill(white)
+#     pygame.draw.rect(main_screen, black, (270, 140, 600, 300))
+#     pygame.draw.rect(main_screen, white, (400, 270, 330, 50))
+#     naglowek = my_big_font.render("Podaj nazwę użytkownika", True, dark_green)
+#     main_screen.blit(naglowek, (285, 170))
+#     click = pygame.mouse.get_pressed()
+#     if 490 + 150 > myszka[0] > 150 and 350 + 40 > myszka[1] > 350:
+#         pygame.draw.rect(main_screen, green, (490, 350, 150, 40))
+#
+#         if click[0] == 1 and Wynik.zapisz_wynik != None:
+#             czas = "3"
+#             Wynik.zapisz_wynik(nazwa_input, czas)
+#             wyswietlanie_tabeli()
+#
+#     else:
+#         pygame.draw.rect(main_screen, dark_green, (490, 350, 150, 40))
+#
+#     napis_enter = smallest_font.render("ENTER", True, black)
+#     main_screen.blit(napis_enter, (520, 355))
+#     text_surface = my_small_font.render(nazwa_input, True, black)
+#     main_screen.blit(text_surface, (405, 280))
+#
+#     clock.tick(15)
+#     pygame.display.flip()
 
 
 intro_screen()
